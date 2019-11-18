@@ -1,23 +1,11 @@
-var message = "Help me, Obi-Wan Kenobi. You'me my only hope!";
-console.log(message);
-var episode = 4;
-console.log("This is episode " + 4);
-episode = episode + 1;
-console.log("Next episode is " + episode);
-var favoriteDroid;
-favoriteDroid = "T-800";
-console.log("My favorite droid is " + favoriteDroid);
-//Funções
-var isEnoughToBeatMG = function (parsecs) {
-    return parsecs < 12;
-};
-var distance = 11;
-console.log("Is " + distance + " parsecs enough to beat Millenium Falcon? " + (isEnoughToBeatMG(distance) ? 'Yes' : 'No'));
-var call = function (name) { return console.log("Do you copy, " + name + " ?"); };
-call('R2');
-function inc(speed, inc) {
-    if (inc === void 0) { inc = 1; }
-    return speed + inc;
-}
-console.log("inc(5,1) = " + inc(5, 1));
-console.log("inc(5) = " + inc(5));
+var NaveEspacial = /** @class */ (function () {
+    function NaveEspacial(propulsor) {
+        this.propulsor = propulsor;
+    }
+    NaveEspacial.prototype.jumpIntoHyperSpace = function () {
+        console.log("Entrando no hiperespa\u00E7o com " + this.propulsor);
+    };
+    return NaveEspacial;
+}());
+var ship = new NaveEspacial("HyperDrive");
+ship.jumpIntoHyperSpace;
