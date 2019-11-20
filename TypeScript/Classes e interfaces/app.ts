@@ -25,22 +25,30 @@ class MilleniumFalcon extends NaveEspacial implements ContainerShip{
 }
 
 class Foquete extends MilleniumFalcon implements ContainerShip{
-    constructor(){
-        super("HyperDrive", 9)
+    constructor(public propulsor: string, public cargoContainer: number, public lugares: number){
+        super("", null)
     }
 }
-let falcon = new MilleniumFalcon("HyperDrive", 1)
-falcon.jumpIntoHyperSpace()
-
-let fog = new Foquete()
-fog.jumpIntoHyperSpace();
-
 
 interface ContainerShip{
     cargoContainer?: number
 }
 
+interface Lugares extends ContainerShip {
+    lugares?: number
+}
+
+let falcon = new MilleniumFalcon("HyperDrive", 1)
+falcon.jumpIntoHyperSpace()
+
+let fog = new Foquete("HyperDrive", 3, 2)
+fog.jumpIntoHyperSpace();
+
+
+
 let naveCarga = (ship: ContainerShip) => ship.cargoContainer > 2
-console.log(`Falcon é uma boa nave para carga? ${naveCarga(falcon) ? 'Yes' : 'No' }`)
-console.log(`Foguete é uma boa nave para carga? ${naveCarga(fog) ? 'Yes' : 'No'}`)
+let naveTransporte = (lugar: Lugares) => lugar.lugares > 3
+console.log(`Falcon é uma boa nave para carga? ${naveCarga(falcon) ? 'Sim' : 'Não' }`)
+console.log(`Foguete é uma boa nave para carga? ${naveCarga(fog) ? 'Sim.' : 'Não.'}` + 
+` Foguete é uma boa nave para transporte de passageiros? ${naveTransporte(fog) ? 'Sim.' : 'Não.'}`)
 

@@ -43,15 +43,21 @@ var MilleniumFalcon = /** @class */ (function (_super) {
 }(NaveEspacial));
 var Foquete = /** @class */ (function (_super) {
     __extends(Foquete, _super);
-    function Foquete() {
-        return _super.call(this, "HyperDrive", 9) || this;
+    function Foquete(propulsor, cargoContainer, lugares) {
+        var _this = _super.call(this, "", null) || this;
+        _this.propulsor = propulsor;
+        _this.cargoContainer = cargoContainer;
+        _this.lugares = lugares;
+        return _this;
     }
     return Foquete;
 }(MilleniumFalcon));
 var falcon = new MilleniumFalcon("HyperDrive", 1);
 falcon.jumpIntoHyperSpace();
-var fog = new Foquete();
+var fog = new Foquete("HyperDrive", 3, 2);
 fog.jumpIntoHyperSpace();
 var naveCarga = function (ship) { return ship.cargoContainer > 2; };
-console.log("Falcon \u00E9 uma boa nave para carga? " + (naveCarga(falcon) ? 'Yes' : 'No'));
-console.log("Foguete \u00E9 uma boa nave para carga? " + (naveCarga(fog) ? 'Yes' : 'No'));
+var naveTransporte = function (lugar) { return lugar.lugares > 3; };
+console.log("Falcon \u00E9 uma boa nave para carga? " + (naveCarga(falcon) ? 'Sim' : 'Não'));
+console.log("Foguete \u00E9 uma boa nave para carga? " + (naveCarga(fog) ? 'Sim.' : 'Não.') +
+    (" Foguete \u00E9 uma boa nave para transporte de passageiros? " + (naveTransporte(fog) ? 'Sim.' : 'Não.')));
