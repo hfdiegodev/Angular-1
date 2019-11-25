@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import {Student} from './student/student.model'
 
 @Component({
   selector: 'jad-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  luke = {name: 'Luke', isJedi: true, temple: 'Coruscant'}
-  heisenberg = {name: 'Heisenberg', isJedi: false}
-  gabriel = {name: 'Gabriel', isJedi: true, temple: 'Holy Terra'}
+
+  students: Student[] = [
+    {name: 'Luke', isJedi: true, temple: 'Coruscant'},
+    {name: 'Heisenberg', isJedi: false},
+    {name: 'Gabriel', isJedi: true, temple: 'Holy Terra'}
+  ]
+
+  
 }
